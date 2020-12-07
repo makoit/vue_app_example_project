@@ -49,19 +49,35 @@ npm run test:unit
 npm run lint
 ```
 
-## run with docker
+## run with docker simple dev
 
 ### build image
 
 ```
-docker build -t vue_app:latest .
+docker build -t vue_app:simple -f Dockerfile.simple .
 ```
 
 ### run container
 
 ```
-docker run -it -p 8080:8080 --rm --name vue_app vue_app:latest
+docker run -d -p 8080:8080 --rm --name vue_app vue_app:simple
 ```
+
+## run with docker prod ready
+
+### build image
+
+```
+docker build -t vue_app:latest -f Dockerfile.prod .
+```
+
+### run container
+
+```
+docker run -d -p 8080:8080 --rm --name vue_app vue_app:latest
+```
+
+---
 
 ---
 
@@ -78,5 +94,4 @@ docker run -it -p 8080:8080 --rm --name vue_app vue_app:latest
 to-do's:
 
 - catch exceptions api calls
-- update dockerfile
 - add unit tests
